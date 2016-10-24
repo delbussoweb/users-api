@@ -31,8 +31,29 @@ app.get('/', function(req, res, err) { // eslint-disable-line no-unused-vars
   });
 });
 
+app.get('/users', function(req, res){
+  return res.render('users/index.ejs', {
+
+  });
+});
+
+app.get('/users_list', function(req, res){
+  userController.getUsers(function(result){
+    res.render('users/user_list.ejs', {
+      users: result.users
+    });
+  }); 
+});
+
+app.get('/user_add', function(req, res){
+  res.render('users/user_form.ejs', {
+    method: 'POST',
+    action: '/user_add'
+  });
+});
+
 // See the User Controller for `/users` routes
-app.use('/users', userController);
+app.use('/api/users', userController);
 
 
 // Some switches for acceptance tests

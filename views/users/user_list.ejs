@@ -1,0 +1,24 @@
+<% include partials/header.ejs %>
+<% include partials/menu.ejs %>
+<div class="panel panel-default">
+    <div class="panel-heading">User List</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Registered</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(function(user){%>
+                <tr>
+                    <td><%= user.registered %></td>
+                    <td><%= user.email %></td>
+                    <td><a href="/update">Edit</a></td>
+                    <td><a href="/delete">Delete</a></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<% include partials/footer.ejs %>

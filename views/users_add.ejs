@@ -1,0 +1,17 @@
+<div class="row" id="phone-add">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Adicione um novo celular</h3>
+            </div>
+            
+        <form role="form" action="/user/insert_hardware" id="formInsertHardware" method="post">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="imei">Digite o Imei - <small>Seu imei é importante pois ele é o identificador único do seu celular e usaremos caso você precise confirmar propriedade no futuro! :) </small></label>
+                    <input type="text" required="required" maxlength="15" placeholder="Imei - para encontrar digite *#06# na tela de discagem do seu celular" id="imei" name="imei" class="form-control">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
