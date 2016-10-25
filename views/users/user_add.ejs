@@ -4,28 +4,27 @@
     <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12">
             <form method="<%= form_method %>" action="<%= action %>">
-                <input type="hidden" name="id" value="<%= typeof user.id != 'undefined' ? user.id : ''%>">
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" value="<%= typeof user.email!='undefined' ? user.email : '' %>">
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="title">
                         Title
                     </label>
-                    <input class="form-control" id="title" name="title" type="text" value="<%= typeof user.name.title!='undefined' ? user.name.title : '' %>"/>
+                    <input class="form-control" id="title" name="title" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="first_name">
                         First name
                     </label>
-                    <input class="form-control" id="first_name" name="first_name" type="text" value="<%= typeof user.name.first!='undefined' ? user.name.first : '' %>"/>
+                    <input class="form-control" id="first_name" name="first_name" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="last_name">
                         Last name
                     </label>
-                <input class="form-control" id="last_name" name="last_name" type="text" value="<%= typeof user.name.last!='undefined' ? user.name.last : '' %>"/>
+                <input class="form-control" id="last_name" name="last_name" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="gender">
@@ -44,67 +43,67 @@
                     <label class="control-label " for="username">
                         Username
                     </label>
-                    <input class="form-control" id="username" name="username" type="text" value="<%= typeof user.username!='undefined' ? user.username : '' %>"/>
+                    <input class="form-control" id="username" name="username" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="password">
                         Password
                     </label>
-                    <input class="form-control" id="password" name="password" type="password" value="<%= typeof user.password!='undefined' ? user.password : '' %>"/>
+                    <input class="form-control" id="password" name="password" type="password"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="registered">
                         Registered
                     </label>
-                    <input class="form-control" id="registered" name="registered" type="text" value="<%= typeof user.registered!='undefined' ? user.registered : '' %>"/>
+                    <input class="form-control" id="registered" name="registered" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="dob">
                         DOB
                     </label>
-                    <input class="form-control" id="dob" name="dob" type="text" value="<%= typeof user.dob!='undefined' ? user.dob : '' %>"/>
+                    <input class="form-control" id="dob" name="dob" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="phone">
                         Phone #
                     </label>
-                    <input class="form-control" id="phone" name="phone" type="text" value="<%= typeof user.phone!='undefined' ? user.phone : '' %>"/>
+                    <input class="form-control" id="phone" name="phone" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="cell">
                         Cell #
                     </label>
-                    <input class="form-control" id="cell" name="cell" type="text" value="<%= typeof user.cell!='undefined' ? user.cell : '' %>"/>
+                    <input class="form-control" id="cell" name="cell" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="pps">
                         PPS
                     </label>
-                    <input class="form-control" id="pps" name="pps" type="text" value="<%= typeof user.PPS!='undefined' ? user.PPS : '' %>"/>
+                    <input class="form-control" id="pps" name="pps" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="zip">
                         Zip
                     </label>
-                    <input class="form-control" id="zip" name="zip" type="text" value="<%= typeof user.location.zip!='undefined' ? user.location.zip : '' %>"/>
+                    <input class="form-control" id="zip" name="zip" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="state">
                         State
                     </label>
-                    <input class="form-control" id="state" name="state" type="text" value="<%= typeof user.location.state!='undefined' ? user.location.state : '' %>"/>
+                    <input class="form-control" id="state" name="state" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="city">
                         City
                     </label>
-                    <input class="form-control" id="city" name="city" type="text" value="<%= typeof user.location.city!='undefined' ? user.location.city : '' %>"/>
+                    <input class="form-control" id="city" name="city" type="text"/>
                 </div>
                 <div class="form-group ">
                     <label class="control-label " for="street">
                         Street
                     </label>
-                    <input class="form-control" id="street" name="street" type="text" value="<%= typeof user.location.street!='undefined' ? user.location.street : '' %>"/>
+                    <input class="form-control" id="street" name="street" type="text"/>
                 </div>
                 <div class="form-group">
                     <div>

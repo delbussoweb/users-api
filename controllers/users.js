@@ -40,12 +40,14 @@ function getUserById(req, result){
       });
     }
 
+    /*
     if (!user) {
       result({
         success: false,
         error: 'User not found'
       });
     }
+    */
 
     result({
       success: true,
@@ -53,82 +55,102 @@ function getUserById(req, result){
     });
   });
 }
+
 router.get('/:id', function(req, res) {
   getUserById(req, function(result){
     res.json(result);
   });
 });
 
-function deleteUser(req, res){
+function deleteUser(req, result){
   User.remove({
     _id: req.params.id
   }, function(err){
     if(err){
-      return res.status(500).json({
-        error: "Error deleting user: " + err
+      result({
+        error: "Error deleting user: " + err,
+        success: false
       });
     }
     
-    res.json({
+    result({
       success: true
     });
   })
 }
 
 router.delete('/:id', function(req, res){
-  deleteUser(req, res);  
+  deleteUser(req, function(result){
+    res.json(result);
+  });  
 });
 
-function updateUser(req, res){
+function updateUser(req, result){
+  console.log(req.body);
   User.findOne({
-    _id: req.params.id
+    _id: req.params.id != undefined ? req.params.id : req.body.id
   }, function(err, user){
     if(err){
-      return res.status(500).json({
-        error: "Error updating user: " + err
+      result({
+        error: "Error updating user: " + err,
+        success: false,
       });
     }
 
     if(!user){
-      return res.status(404).end()
+      result({
+        error: "User not found",
+        success: false
+      });
     }
 
-    if(req.body != undefined)
-      user.name.first = req.body.first_name;
+    user.name = {
+      first: req.body.first_name,
+      last: req.body.last_name,
+      title: req.body.title
+    };
+
+    user.location = {
+      zip: req.body.zip,
+      state: req.body.state,
+      city: req.body.city,
+      street: req.body.street
+    }
     
-    user.save(function(err){
+    Object.assign(user, req.body).save(function(err){
       if(err){
-        return res.status(500).json({
-          error: "Error updating user: " + err
+        result({
+          error: "Error updating user: " + err,
+          success: false
         });
       }
 
-      res.json({
-        success: true
+      result({
+        success: true,
+        user
       });
-    })
+    });
   });
 }
 
 router.put('/:id', function(req, res){
-  updateUser(req, res);
+  updateUser(req, function(result){
+    res.json(result);
+  });
 })
 
-function insertUser(req, res){
+function insertUser(req, result){
   var newUser = new User(req.body);
 
   newUser.save(function(err, user){
     if(err){
-      return res.status(500).json({
-        error: "Error inserting user: " + err
+      result({
+        error: "Error inserting user: " + err,
+        success: false
       });
     }
 
-    if(!user){
-      return res.status(404).end();
-    }
-
-    res.json({
+    result({
       success: true,
       user_id: user._id
     });
@@ -136,9 +158,15 @@ function insertUser(req, res){
 }
 
 router.post('/', function(req, res){
-  insertUser(req, res);  
+  insertUser(req, function(result){
+    res.json(result);
+  });  
 });
 
 
 module.exports = router;
 module.exports.getUsers = getUsers;
+module.exports.getUserById = getUserById;
+module.exports.updateUser = updateUser;
+module.exports.insertUser = insertUser;
+module.exports.deleteUser = deleteUser;

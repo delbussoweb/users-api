@@ -90,7 +90,7 @@ describe('Users', function() {
 
         chai.request(url)
           .put('/api/users/' + id)
-          .send({first_name: 'LEANDRO',last_name: 'DOMINGUES'})
+          .send({first_name: 'leandro',last_name: 'domingues'})
           .end(function(err, res){
             res.should.have.status(200);
             expect(res.body).to.be.a('object');
@@ -148,7 +148,6 @@ describe('Users', function() {
           res.should.have.status(200);
           expect(res.body).to.be.a('object');
           expect(res.body.success).to.be.true;
-          console.log(res.body.user_id);
           User.count({}, function(err_count, user_count){
               expect(user_count).to.equal(100);
               done();
